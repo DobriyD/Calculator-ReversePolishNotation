@@ -1,3 +1,4 @@
 # Calculator-ReversePolishNotation
-ReversePolishNotation\n
+ReversePolishNotation
+
 That was the first try to finish the test-task with Java.
