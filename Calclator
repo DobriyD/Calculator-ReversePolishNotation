@@ -1,0 +1,40 @@
+import java.util.*;
+
+public class Calculator {
+    public String evaluate(String statement) {
+        /* Interface Calculator realizes through
+         * Reverse Polish Notation
+         */
+        String expression = statement;
+        Stack<Double> values = new Stack<>();
+        int lastPlace = 0;
+        double number2 = 0;
+        String item;
+
+        for (int i = 0; i < expression.length(); i++) {
+            if (expression.charAt(i) == ' ') {
+                item = expression.substring(lastPlace, i);
+                item = item.replaceAll("\\s+", "");
+
+                if (item.equals('+')) { //sum
+                    values.push(values.pop() + values.pop());
+                } else if (item.equals('-')) { //subtraction
+                    number2 = values.pop();
+                    values.push(values.pop() - number2);
+                } else if (item.equals('*')) { //multiply
+                    values.push(values.pop() * values.pop());
+                } else if (item.equals('/')) { //divison
+                    number2 = values.pop();
+                    if (number2 == 0) return null; // check the 0 division
+                    else {
+                        values.push(values.pop() / number2);
+                    }
+                } else {
+                    values.push(Double.parseDouble(item));
+                }
+            } lastPlace = i;
+        }
+        return String.format("%.4f", values.pop());
+    }
+}
+
