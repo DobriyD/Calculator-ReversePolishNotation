@@ -4,6 +4,8 @@ public class Calculator {
     public String evaluate(String statement) {
         /* Interface Calculator realizes through
          * Reverse Polish Notation
+         * Author: DobriyD
+         * https://app.codeship.com/projects/f202f690-c4c4-0137-2468-62c466b2a57e/status?branch=master
          */
         String expression = statement;
         Stack<Double> values = new Stack<>();
