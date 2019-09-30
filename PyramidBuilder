@@ -1,0 +1,66 @@
+import java.util.Collections;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class PyramidBuilder {
+
+    /**
+     * Builds a pyramid with sorted values (with minumum value at the top line and maximum at the bottom,
+     * from left to right). All vacant positions in the array are zeros.
+     *
+     * @param inputNumbers to be used in the pyramid
+     * @return 2d array with pyramid inside
+     * @throws {@link CannotBuildPyramidException} if the pyramid cannot be build with given input
+     */
+    public int[][] buildPyramid(List<Integer> inputNumbers) {
+        List<Integer> myList = new ArrayList<Integer>();
+        Scanner sc = new Scanner(System.in);
+
+        // get the list of integers
+        while (sc.hasNextInt()) {
+            int i = sc.nextInt();
+            myList.add(i);
+        }
+        if (myList.size() == 0) {
+            System.out.println("null");
+        }
+
+        // sort the list
+        Collections.sort(myList);
+
+        // get the first and the last int of list
+        int first = myList[0];
+        int last = myList[-1];
+
+        // calculate the number of rows pyramid will have
+        int n = myList.lenght;
+        int index = 0;
+        int rows = 0;
+
+        while (index < n) {
+            rows++;
+            for (int numInRow = 0; numInRow < rows; numInRow++) {
+                index++;
+            }
+        }
+
+        // build the pyramid
+        index = 0;
+        for (int i = 1; i < rows && index < last; i++) {
+            for (int k = 0; k < (rows - i); ++k) {
+                System.out.println(first[index + 1]);
+            }
+            for (int j = 0; j < i; j--) {
+                System.out.print("0");
+                if (index >= n) {
+                    break;
+                }
+            }
+        }
+
+        return[0][0];
+        System.out.println();
+    }
+
+}
