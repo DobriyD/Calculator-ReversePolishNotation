@@ -1,0 +1,35 @@
+import java.util.List;
+import java.util.Scanner;
+import java.lang.String;
+
+public class Subsequence {
+
+    /**
+     * Checks if it is possible to get a sequence which is equal to the first
+     * one by removing some elements from the second one.
+     *
+     * @param x first sequence
+     * @param y second sequence
+     * @return <code>true</code> if possible, otherwise <code>false</code>
+     */
+    @SuppressWarnings("rawtypes")
+    public boolean find(List x, List y) {
+        // input two lists
+        Scanner x = new Scanner(System.in);
+        Scanner y = new Scanner(System.in);
+        String line1 = x.nextLine();
+        String line2 = y.nextLine();
+
+        // separate the elements from second list
+        line2 = line2.replace("", ".*");
+
+        //if the line1 is empty then it's automatically become the match
+        if (line1 == null) {
+            return true;
+        }
+        // matches the both list and get the result
+        result = line2.matches(line1);
+
+        return result;
+    }
+}
